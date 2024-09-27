@@ -129,7 +129,6 @@ class ToolsDiceEntropyEntryScreen(KeyboardScreen):
     def __post_init__(self):
         # Override values set by the parent class
         self.title = f"Dice Roll 1/{self.return_after_n_chars}"
-        self.custom_additional_keys = [Keyboard.KEY_BACKSPACE]
 
         # Specify the keys in the keyboard
         self.rows = 3
@@ -188,7 +187,6 @@ class ToolsCoinFlipEntryScreen(KeyboardScreen):
     def __post_init__(self):
         # Override values set by the parent class
         self.title = f"Coin Flip 1/{self.return_after_n_chars}"
-        self.custom_additional_keys = [Keyboard.KEY_BACKSPACE_2]
 
         # Specify the keys in the keyboard
         self.rows = 1

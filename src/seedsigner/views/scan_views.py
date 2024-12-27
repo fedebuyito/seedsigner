@@ -133,6 +133,8 @@ class ScanView(View):
                 from seedsigner.views.seed_views import AddressVerificationStartView
                 address = self.decoder.get_address()
                 (script_type, network) = self.decoder.get_address_type()
+                seed_num = self.seed_num
+
 
                 return Destination(
                     AddressVerificationStartView,
@@ -141,6 +143,7 @@ class ScanView(View):
                         "address": address,
                         "script_type": script_type,
                         "network": network,
+                        "seed_num": seed_num
                     }
                 )
             
@@ -208,6 +211,11 @@ class ScanWalletDescriptorView(ScanView):
 class ScanAddressView(ScanView):
     instructions_text = _mft("Scan address QR")
     invalid_qr_type_message = _mft("Expected an address QR")
+
+    def __init__(self, seed_num: int=None):
+        super().__init__()
+        self.seed_num = seed_num
+
 
     @property
     def is_valid_qr_type(self):

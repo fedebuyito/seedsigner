@@ -199,7 +199,7 @@ class TestSeedFlows(FlowTest):
                     FlowStep(seed_views.SeedExportXpubDetailsView, screen_return_value=0),
                     FlowStep(seed_views.SeedExportXpubQRDisplayView, screen_return_value=0),
                     FlowStep(seed_views.SeedExportXpubQRAskVerifyAddView, screen_return_value=0),
-                    FlowStep(scan_views.ScanAddressView, screen_return_value=0),                    
+                    FlowStep(scan_views.ScanAddressView, screen_return_value=0),
                     FlowStep(MainMenuView),
                 ]
         )

@@ -1020,6 +1020,14 @@ class WarningScreen(WarningEdgesMixin, LargeIconStatusScreen):
 
 
 @dataclass
+class AdviceScreen(WarningEdgesMixin, LargeIconStatusScreen):
+    title: str = _mft("Advice")
+    status_icon_name: str = SeedSignerIconConstants.WARNING
+    status_color: str = "yellow"
+
+
+
+@dataclass
 class DireWarningScreen(WarningScreen):
     status_headline: str = _mft("Classified Info!")     # The colored text under the alert icon
     status_color: str = GUIConstants.DIRE_WARNING_COLOR

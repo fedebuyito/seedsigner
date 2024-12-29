@@ -9,7 +9,7 @@ from embit.descriptor import Descriptor
 
 from seedsigner.gui.components import FontAwesomeIconConstants, SeedSignerIconConstants
 from seedsigner.gui.screens import (RET_CODE__BACK_BUTTON, ButtonListScreen,
-    WarningScreen, DireWarningScreen, seed_screens)
+    WarningScreen, DireWarningScreen, seed_screens, AdviceScreen)
 from seedsigner.gui.screens.screen import ButtonOption
 from seedsigner.models.encode_qr import CompactSeedQrEncoder, GenericStaticQrEncoder, SeedQrEncoder, SpecterXPubQrEncoder, StaticXpubQrEncoder, UrXpubQrEncoder
 from seedsigner.models.qr_type import QRType
@@ -1028,15 +1028,17 @@ class SeedExportXpubQRAskVerifyAddView(View):
         super().__init__()
         self.seed_num = seed_num
 
-    def run(self):
 
+    def run(self):
         button_data = [self.VERIFY, self.DONE]
 
         # Because we have an explicit "DONE" button, we disable "BACK" to keep the
         # routing options sane.
         selected_menu_num = self.run_screen(
-            ButtonListScreen,
-            title="Verify New Wallet?",
+            AdviceScreen,
+            title="Advice",
+            status_headline = _("Check new wallet"),
+            text=_("Scan wallet address for verify it with xpub?"),
             is_button_text_centered=True,
             show_back_button=False,
             button_data=button_data
